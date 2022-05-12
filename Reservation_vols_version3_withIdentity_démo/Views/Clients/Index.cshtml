@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Reservation_vols_version2_withEF.Models.Client>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Clients" asp-action="Index">
+    <p>
+        Firstname : <input type="text" name="SearchString" />
+        <input type="submit" value="Filter"/>
+    </p>
+</form>
+
+<table class="table sortable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phonenumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phonenumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Clientid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Clientid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Clientid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

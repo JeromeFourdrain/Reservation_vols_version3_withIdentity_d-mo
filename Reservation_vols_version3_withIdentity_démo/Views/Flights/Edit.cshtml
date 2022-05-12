@@ -1,0 +1,49 @@
+﻿@model Reservation_vols_version2_withEF.Models.Flight
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Flight</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Flightid" />
+            <div class="form-group">
+                <label asp-for="DateDeparture" class="control-label"></label>
+                <input asp-for="DateDeparture" class="form-control" />
+                <span asp-validation-for="DateDeparture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateArrival" class="control-label"></label>
+                <input asp-for="DateArrival" class="form-control" />
+                <span asp-validation-for="DateArrival" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirportDepartureId" class="control-label"></label>
+                <select asp-for="AirportDepartureId" class="form-control" asp-items="ViewBag.AirportDepartureId"></select>
+                <span asp-validation-for="AirportDepartureId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirportArrivalId" class="control-label"></label>
+                <select asp-for="AirportArrivalId" class="form-control" asp-items="ViewBag.AirportArrivalId"></select>
+                <span asp-validation-for="AirportArrivalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

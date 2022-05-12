@@ -1,0 +1,73 @@
+﻿@model Reservation_vols_version2_withEF.Models.Flight
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Flight</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Isopen)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Isopen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateDeparture)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateDeparture)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateArrival)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateArrival)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AirportDeparture) ID
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AirportDeparture.Airportid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AirportDeparture) Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AirportDeparture.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AirportDeparture) Address
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AirportDeparture.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AirportArrival) ID
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AirportArrival.Airportid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AirportArrival) Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AirportArrival.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AirportArrival) Address
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AirportArrival.Address)
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Flightid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

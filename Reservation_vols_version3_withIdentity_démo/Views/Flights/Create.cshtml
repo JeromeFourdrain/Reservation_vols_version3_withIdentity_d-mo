@@ -1,0 +1,46 @@
+﻿@model Reservation_vols_version2_withEF.ViewModel.CreatedFlightVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Flight</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateDeparture" class="control-label"></label>
+                <input asp-for="DateDeparture" class="form-control" />
+                <span asp-validation-for="DateDeparture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateArrival" class="control-label"></label>
+                <input asp-for="DateArrival" class="form-control" />
+                <span asp-validation-for="DateArrival" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirportDepartureId" class="control-label"></label>
+                <select asp-for="AirportDepartureId" class ="form-control" asp-items="ViewBag.AirportDepartureId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirportArrivalId" class="control-label"></label>
+                <select asp-for="AirportArrivalId" class ="form-control" asp-items="ViewBag.AirportArrivalId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

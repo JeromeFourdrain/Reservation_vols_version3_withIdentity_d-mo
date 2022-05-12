@@ -1,0 +1,68 @@
+﻿@model Reservation_vols_version2_withEF.ViewModel.FilteredIndexFlightsVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Flights" asp-action="Index" method="get">
+    <p>
+        Aéroport de départ :
+        <select asp-for="DepartureAirport" asp-items="Model.Airports">
+            <option value="">All</option>
+        </select>
+        <span style="margin-left:10px;">Aéroport d'arrivée :</span>
+        <select asp-for="ArrivalAirport" asp-items="Model.Airports">
+            <option value="">All</option>
+        </select>
+        <input style="margin-left:10px;" type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table sortable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Flights[0].DateDeparture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flights[0].AirportDeparture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flights[0].DateArrival)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flights[0].AirportArrival)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Flights) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateDeparture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirportDeparture.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateArrival)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirportArrival.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Flightid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Flightid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Flightid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
