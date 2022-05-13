@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,7 @@ namespace Reservation_vols_version2_withEF.Controllers
         }
 
         // GET: Flights
+        [Authorize]
         public async Task<IActionResult> Index(string? DepartureAirport, string? ArrivalAirport)
         {
             //On préparer la requète, on va chercher uniquement les nom (select air.Name) pour les aéroports qui n'ont pas été supprimés (air.Isdeleted==false)
@@ -156,6 +158,7 @@ namespace Reservation_vols_version2_withEF.Controllers
         }
 
         // GET: Flights/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -178,6 +181,7 @@ namespace Reservation_vols_version2_withEF.Controllers
         // POST: Flights/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrateur")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var flight = await _context.Flights.FindAsync(id);
