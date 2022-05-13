@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Reservation_vols_version2_withEF.Models;
 
-namespace Reservation_vols_version3_withIdentity_démo.Models
+namespace Reservation_vols_version2_withEF.Models
 {
     public partial class Reservation_volsContext : DbContext
     {
@@ -52,6 +51,8 @@ namespace Reservation_vols_version3_withIdentity_démo.Models
                     .HasDefaultValueSql("false");
 
                 entity.Property(e => e.Name).HasColumnName("name");
+
+                entity.Property(e => e.Photo).HasColumnName("photo");
             });
 
             modelBuilder.Entity<Client>(entity =>

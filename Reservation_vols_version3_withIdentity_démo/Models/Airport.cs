@@ -15,6 +15,7 @@ namespace Reservation_vols_version2_withEF.Models
         public string Name { get; set; } = null!;
         public string Address { get; set; } = null!;
         public bool? Isdeleted { get; set; }
+        public string? Photo { get; set; }
 
         public virtual ICollection<Flight> FlightAirportArrivals { get; set; }
         public virtual ICollection<Flight> FlightAirportDepartures { get; set; }

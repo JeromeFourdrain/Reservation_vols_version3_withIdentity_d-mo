@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Reservation_vols_version2_withEF.Models;
 using Reservation_vols_version3_withIdentity_démo.Data;
 using Reservation_vols_version3_withIdentity_démo.Models;
 

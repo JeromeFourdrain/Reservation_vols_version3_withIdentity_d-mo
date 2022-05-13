@@ -29,7 +29,7 @@ namespace Reservation_vols_version3_withIdentity_démo.Data
                 var user = await userManager.FindByEmailAsync(defaultUser.Email);
                 if (user == null)
                 {
-                    await userManager.CreateAsync(defaultUser, "Test123<3");
+                    await userManager.CreateAsync(defaultUser, "Password123_");
                     await userManager.AddToRoleAsync(defaultUser,
                     Roles.Basic.ToString());
                     await userManager.AddToRoleAsync(defaultUser,

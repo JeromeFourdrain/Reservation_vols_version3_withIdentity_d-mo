@@ -181,7 +181,7 @@ namespace Reservation_vols_version2_withEF.Controllers
         // POST: Flights/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrateur")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var flight = await _context.Flights.FindAsync(id);

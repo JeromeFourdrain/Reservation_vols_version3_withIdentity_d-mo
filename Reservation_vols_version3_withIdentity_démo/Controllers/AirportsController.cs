@@ -20,6 +20,11 @@ namespace Reservation_vols_version2_withEF.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> AlternativeIndex()
+        {
+            return View(await _context.Airports.ToListAsync());
+        }
+
         // GET: Airports
         public async Task<IActionResult> Index()
         {
